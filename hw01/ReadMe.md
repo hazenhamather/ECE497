@@ -8,3 +8,11 @@ things must be done.
 3. Tell the game where to start
 4. use the words "up", "down", "left", or "right" to move around
 5. enter "clear" or "shake" to start over. 
+
+
+==========
+Comments from Prof. Yoder
+
+Looks good.  Seems to run well.
+
+Grade: 10/10
