@@ -23,18 +23,21 @@ var button1 = 'P9_11';
 var button2 = 'P9_13';
 var button3 = 'P9_22';
 var button4 = 'P9_17';
+var button5 = 'P9_16';
 
 //Setting the pin mode for each of the buttons
 b.pinMode(button1, b.INPUT);
 b.pinMode(button2, b.INPUT);
 b.pinMode(button3, b.INPUT);
 b.pinMode(button4, b.INPUT);
+b.pinMode(button5, b.INPUT);
 
 //Attaching interrupts to each of the buttons
 b.attachInterrupt(button1, true, b.FALLING, moveUp);
 b.attachInterrupt(button2, true, b.FALLING, moveDown);
 b.attachInterrupt(button3, true, b.FALLING, moveRight);
 b.attachInterrupt(button4, true, b.FALLING, moveLeft);
+b.attachInterrupt(button5, true, b.FALLING, clearBoard);
 
 var rows = 8;
 var cols = rows;
@@ -75,6 +78,7 @@ function printBoard(board,cols,rows) {
     wire.writeBytes(0x00, game, function(err) {
  
     });
+    checkBoard(board,cols,rows);
 };
 
 function moveUp(x) {
@@ -106,5 +110,34 @@ function moveLeft(x) {
         c--;
         board[y][c] = "1";
         printBoard(board, cols, rows);
+    }
+};
+
+function clearBoard(x) {
+    if (x.attached === true) {
+        return;
+    }
+    for (i = 0; i < rows; i++) {
+        // board[i] = new Array(cols);
+        for (j = 0; j < cols;j++) {
+            board[i][j] = "0";
+        }
+    }
+    board[y][c] = "1";
+    printBoard(board,cols,rows);
+};
+
+function checkBoard(board,rows,cols) {
+    var total = rows*cols;
+    var current = 0;
+    for (i = 0; i < rows; i++) {
+        for (j = 0; j < cols; j++) {
+            current += parseInt(board[i][j]);
+        }
+    }
+    if (current === total) {
+        //Passing 1 to clearboard so that x.attached is not true, allowing me
+        //to clear the board
+        clearBoard(1);
     }
 };
