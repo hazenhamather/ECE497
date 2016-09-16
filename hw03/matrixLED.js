@@ -1,12 +1,10 @@
 #!/usr/bin/env node
-// This is a workaround since the BoneScript i2c isn't working.
-// Thanks to Ricky Rung
-// install:  npm install i2c@0.2.1  (the latest version doesn't work)
 
+//Hazen Hamather
+//Initializing requirements
 var i2c = require('i2c');
 var b = require('bonescript');
 var port = '/dev/i2c-2';
-// var port = '/sys/class/i2c-adapter/i2c-2/'; 
 
 var matrix = 0x70;
 var time = 1000; // Delay between images in ms
@@ -27,10 +25,6 @@ var button3 = 'P9_22';
 var button4 = 'P9_17';
 
 //Setting the pin mode for each of the buttons
-// b.pinMode(button1, b.INPUT ,7, 'pulldown');
-// b.pinMode(button2, b.INPUT, 7, 'pulldown');
-// b.pinMode(button3, b.INPUT, 7, 'pulldown');
-// b.pinMode(button4, b.INPUT, 7, 'pulldown');
 b.pinMode(button1, b.INPUT);
 b.pinMode(button2, b.INPUT);
 b.pinMode(button3, b.INPUT);
@@ -45,8 +39,6 @@ b.attachInterrupt(button4, true, b.FALLING, moveLeft);
 var rows = 8;
 var cols = rows;
 var board = new Array(rows);
-var emptyBoard = [0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
-                    0x00,0x00,0x00,0x00];
 
 for (i = 0; i < rows; i++) {
     board[i] = new Array(cols);
@@ -55,23 +47,9 @@ for (i = 0; i < rows; i++) {
     }
 };
 board[y][c] = "1";
-console.log(board);
 printBoard(board, cols, rows);
 
 // The first byte is GREEN, the second is RED.
-
-// var frown = [0x3c, 0xff, 0x42, 0xff, 0x85, 0x20, 0x89, 0x00,
-//     0x89, 0x00, 0x85, 0x20, 0x42, 0x00, 0x3c, 0x00
-// ];
-
- 
-// wire.writeByte(0x21, function(err) {            // Start oscillator (p10)
-//     wire.writeByte(0x81, function(err) {        // Disp on, blink off (p11)
-//         wire.writeByte(0xe7, function(err) {    // Full brightness (page 15)
-
-//         });
-//     });
-// });
 
 function printBoard(board,cols,rows) {
     var game = [];
@@ -85,8 +63,6 @@ function printBoard(board,cols,rows) {
         game.push(0x00);
         
     }
-    console.log(game);
-    console.log(board);
     
     wire.writeByte(0x21, function(err) {            // Start oscillator (p10)
         wire.writeByte(0x81, function(err) {        // Disp on, blink off (p11)
@@ -95,14 +71,11 @@ function printBoard(board,cols,rows) {
             });
         });
     });
-    // wire.writeBytes(0x00, emptyBoard, function(err) {
-        
-    // });
+    
     wire.writeBytes(0x00, game, function(err) {
  
     });
 };
-
 
 function moveUp(x) {
     if (y-1 >= 0) {
