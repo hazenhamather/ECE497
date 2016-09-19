@@ -1,32 +1,42 @@
 #!/bin/bash
-#This is the shell file for the two TMP101 temperature sensors
 
-#Setting up alerts (thermostat mode)[Polarity and thermostat high]
-i2cset -y 2 0x48 0x01 0x00
-i2cset -y 2 0x49 0x01 0x00
+#Initializing temperature register)
+i2cset -y 2 0x48 0x00 
+i2cset -y 2 0x49 0x00 
 
-#i2cset -y 2 0x48 0x01 0x02
-#i2cset -y 2 0x49 0x01 0x02
+#Getting initial temperature of the ambient environment
+temp1=$(i2cget -y 2 0x48)
+temp2=$(i2cget -y 2 0x49)
 
-#i2cset -y 2 0x48 0x04 0x01
-#i2cset -y 2 0x49 0x04 0x01
-#i2cset -y 02 0x48 0x01 0x06
-#i2cset -y 02 0x49 0x01 0x06
+temp1high=$((temp1 + 2))
+temp2high=$((temp2 + 2))
 
-# #Setting high and low temps for both pieces
-i2cset -y 2 0x48 0x02 0x15 #Setting Low 
-i2cset -y 2 0x48 0x03 0x1a #Setting High
+temp1low=$((temp1 - 1))
+temp2low=$((temp2 - 1))
 
-i2cset -y 2 0x49 0x02 0x15 #Setting Low
-i2cset -y 2 0x49 0x03 0x1a #Setting High
+echo 'Top sensor'
+echo $temp1
+echo 'Bottom sensor'
+echo $temp2
 
-#Pointing registers back to thermostat
-i2cset -y 2 0x48 0x00
-i2cset -y 2 0x49 0x00
+#Setting Configuration Register (TM = 1, POL = 1 for active high alert pins)
+i2cset -y 2 0x48 0x01 0x06
+i2cset -y 2 0x49 0x01 0x06
 
-#i2cget -y 2 0x48
-#i2cget -y 2 0x49
+#Temperature settings
+i2cset -y 2 0x48 0x02 $temp1low #Top sensor low temperature
+i2cset -y 2 0x48 0x03 $temp1high #Bottom sensor low temperature
+
+i2cset -y 2 0x49 0x02 $temp2low #Top sensor high temperature
+i2cset -y 2 0x49 0x03 $temp2high #Bottom sensor high temperature
+
+#Point registers back
+i2cset -y 2 0x48 0x00 
+i2cset -y 2 0x49 0x00 
+
 ./temp.js
 
+echo 'Top Sensor'
 i2cget -y 2 0x48
+echo 'Bottom sensor'
 i2cget -y 2 0x49
