@@ -29,11 +29,13 @@ console.log("pinModes set");
 function alert1Problem(x) {
     if (x.attached === true) {
         console.log("Temp sensor 1 out of range");
+        process.exit(0);
     }
 };
 
 function alert2Problem(x) {
     if (x.attaached === true) {
         console.log("Temp sensor 2 out of range");
+        process.exit(0);
     }
 };
