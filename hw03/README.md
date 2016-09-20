@@ -10,6 +10,12 @@ as desired. If I had more time to work on this, I might consider
 changing the current position color if the user passes over a tile that has
 already been crossed. 
 
-The temperature sensors were quite tough to implement and I was only able
-to configure them and get a temperature reading. If the shell file is run,
-the output to the console is the temperature from each thermostat in F.
+The two TMP101 temperature sensors are working and are configured for 
+interrupt mode. There is a main shell file that calls a javascript file
+in order to process the alerts of the temperature sensors. These alerts
+are seen as interrupts and the callback function prints which sensor
+had the interrupt.
+
+As far as the TMP006 goes, I was only able to read a temperature with
+it. Most of my time on this assignment was spent debugging the TMP101
+situation.
