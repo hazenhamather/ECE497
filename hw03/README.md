@@ -19,3 +19,9 @@ had the interrupt.
 As far as the TMP006 goes, I was only able to read a temperature with
 it. Most of my time on this assignment was spent debugging the TMP101
 situation.
+
+==========
+Comments from Prof. Mark A. Yoder
+Looks good.  Thanks for the demo.
+
+Grade:  10/10
