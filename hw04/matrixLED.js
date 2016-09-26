@@ -35,7 +35,6 @@ function LEDclick(i, j) {
 //	alert(i+","+j+" clicked");
     if (lightsOn[i][j] === 0) {
         disp[i] ^= 0x1<<j;
-        console.log("LED " + i + " has been clicked");
         lightsOn[i][j] = 1;
     }
     // disp[i] ^= 0x1<<j;
