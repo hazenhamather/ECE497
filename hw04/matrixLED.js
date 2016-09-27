@@ -42,7 +42,6 @@ function LEDclick(i, j) {
 
         } else if ($('#id'+i+'_'+j).hasClass('both')) {
             $('#id'+i+'_'+j).removeClass('both');
-            // green[i] ^= 0x1<<j;
             red[i] ^= 0x1<<j;
             $('#id'+i+'_'+j).addClass('green');
             socket.emit('i2cset', {i2cNum: i2cNum, i: 2*i+1, 
