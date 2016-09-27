@@ -33,42 +33,26 @@ $("#slider1").slider({min:0, max:15, slide: function(event, ui) {
 
 // Send one column when LED is clicked.
 function LEDclick(i, j) {
-    // if (lightsOn[i][j] === 0) {
-    //     disp[i] ^= 0x1<<j;
-    //     lightsOn[i][j] = 1;
-    // }
-    // Toggle bit on display
         if ($('#id'+i+'_'+j).hasClass('red')) {
             $('#id'+i+'_'+j).removeClass('red');
-            // red[i] ^= 0x1<<j; //Toggle off red
             $('#id'+i+'_'+j).addClass('both'); 
             green[i] ^= 0x1<<j;
-            // red[i] ^= 0x1<<j;
 			socket.emit('i2cset', {i2cNum: i2cNum, i: 2*i, 
 			     disp: '0x'+green[i].toString(16)});
-// 			socket.emit('i2cset', {i2cNum: i2cNum, i: 2*i+1, 
-			     //disp: '0x'+red[i].toString(16)});
-			     
+
         } else if ($('#id'+i+'_'+j).hasClass('both')) {
             $('#id'+i+'_'+j).removeClass('both');
             // green[i] ^= 0x1<<j;
             red[i] ^= 0x1<<j;
             $('#id'+i+'_'+j).addClass('green');
-            // green[i] ^= 0x1<<j; // Toggle on red
             socket.emit('i2cset', {i2cNum: i2cNum, i: 2*i+1, 
 			     disp: '0x'+red[i].toString(16)});
-// 			socket.emit('i2cset', {i2cNum: i2cNum, i: 2*i+1, 
-			     //disp: '0x'.green[i].toString(16)});
 			     
         } else if ($('#id'+i+'_'+j).hasClass('green')) {
             $('#id'+i+'_'+j).removeClass('green');
             green[i] ^= 0x1<<j;
             socket.emit('i2cset', {i2cNum: i2cNum, i: 2*i, 
 			     disp: '0x'+green[i].toString(16)});
-// 			socket.emit('i2cset', {i2cNum: i2cNum, i: 2*i+1, 
-// 			     disp: '0x'red[i].toString(16)});
-            // lightsOn[i][j] = 0;
-            // disp[i] ^= 0x1<<j;
             
         } else {
             $('#id'+i+'_'+j).addClass('red'); 
