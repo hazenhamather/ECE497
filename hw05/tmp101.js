@@ -22,7 +22,7 @@ console.log(util.inspect(keys));
 var urlBase = keys.inputUrl + "/?private_key=" + keys.privateKey 
                 + "&temp1=%s&temp2=%s";
                 
-setInterval(readTemp,1000*10);
+setInterval(readTemp,1000*10); 
 
 // var temp = [];
 function readTemp() {
