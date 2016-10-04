@@ -21,9 +21,12 @@ console.log(util.inspect(keys));
 
 var urlBase = keys.inputUrl + "/?private_key=" + keys.privateKey 
                 + "&temp1=%s&temp2=%s";
+                
+setInterval(readTemp,1000*10);
 
-var temp = [];
-
+// var temp = [];
+function readTemp() {
+    var temp = [];
 // Read the temp sensors
 for(var i=0; i<tmp101.length; i++) {
     temp[i] = sensor.readByteSync(tmp101[i], 0x0);
@@ -44,3 +47,4 @@ request(url, function (err, res, body) {
         console.log("error=" + err + " response=" + JSON.stringify(res));
     }
 });
+}

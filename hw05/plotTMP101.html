@@ -63,6 +63,8 @@ var zone = 'America/New_York';
 var format = 'YYYY-MM-DD HH:mm:ss';
 
 // JSONP request
+setInterval(updatePlot, 1000*10);
+function updatePlot() {
 $.ajax({
  // url: 'http://14.139.34.32:8080/output/' + public_key + '.json' + timezone,
  //   url: server + 'output/' + public_key + '.json' + "?limit=" + 4*60*24*7,
@@ -111,6 +113,7 @@ layout.yaxis.title = keys.join(', ');
     Plotly.plot('plot', data, layout);      // Puts plot in <div> with id='plot'
     $('#summary').html(keys.join(', '));
 });
+}
 
 </script>
 </body>
