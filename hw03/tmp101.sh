@@ -8,12 +8,13 @@ i2cset -y 2 0x49 0x00
 temp1=$(i2cget -y 2 0x48)
 temp2=$(i2cget -y 2 0x49)
 
-temp1high=$((temp1 + 2))
-temp2high=$((temp2 + 2))
+temp1high=$((temp1+1))
+temp2high=$((temp2+1))
 
-temp1low=$((temp1 - 1))
-temp2low=$((temp2 - 1))
-
+temp1low=$((temp1-1))
+temp2low=$((temp2-1))
+temp1=$((temp1*9/5+32))
+temp2=$((temp2*9/5+32))
 echo 'Top sensor'
 echo $temp1
 echo 'Bottom sensor'

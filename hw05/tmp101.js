@@ -9,7 +9,7 @@ var util    = require('util');
 var filename = "/root/ECE497/hw05/keys_tmp101.json";
 
 var bus = 2;
-var tmp101 = [0x48];
+var tmp101 = [0x48, 0x49];
 var time = 1000;    // Time between readings
 
 var sensor = i2c.openSync(bus);
@@ -20,7 +20,7 @@ console.log("Title: " + keys.title);
 console.log(util.inspect(keys));
 
 var urlBase = keys.inputUrl + "/?private_key=" + keys.privateKey 
-                + "&temp1=%s";
+                + "&temp1=%s&temp2=%s";
                 
 setInterval(readTemp,1000*10); 
 
@@ -35,7 +35,7 @@ for(var i=0; i<tmp101.length; i++) {
 }
 
 // Substitute in the temperatures
-var url = util.format(urlBase, temp[0]);
+var url = util.format(urlBase, temp[0], temp[1]);
 console.log("url: ", url);
 
 // Send to phant

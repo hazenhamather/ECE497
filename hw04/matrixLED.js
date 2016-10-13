@@ -61,6 +61,12 @@ function LEDclick(i, j) {
         }
 }
 
+    function clear() {
+        if ($('#id'+i+'_'+j).hasClass('red')) {
+            $('#id'+i+'_'+j).removeClass('red')
+        }
+    }
+
     function connect() {
       if(firstconnect) {
         socket = io.connect(null);
