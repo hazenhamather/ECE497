@@ -6,3 +6,10 @@ This subdirectory contains the Homework 6 assignment for the IR tracker using th
   5. Keep the IR emitter in the same plane and rotate around and watch the stepper motor keep locked on!
   
 Created by Hazen Hamather and Luke Kuza
+
+==========
+Prof. Yoder's comments
+Looks good and complete.
+Who did you work with?
+
+Grade:  10/10
