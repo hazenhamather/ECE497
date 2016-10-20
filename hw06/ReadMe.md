@@ -10,6 +10,5 @@ Created by Hazen Hamather and Luke Kuza
 ==========
 Prof. Yoder's comments
 Looks good and complete.
-Who did you work with?
 
 Grade:  10/10
