@@ -5,3 +5,10 @@ A report file is contained in this directory and it was written with LibreOffice
 to open, I can try to move it over to a Word document. 
 
 Hazen Hamather 
+
+==========
+Prof. Yoder's comments
+Good point about debounce time. 
+Good report.  Didn't preport min/max/ave times.
+
+Grade:  9/10
