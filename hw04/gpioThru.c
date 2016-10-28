@@ -83,7 +83,7 @@ int main(int argc, char *argv[]) {
     	} else {
             *gpio_cleardataout_addr1 = USR3;
     	}
-    	if(*gpio_datain & GPIO_07) {
+    	if(*gpio_datain & GPIO_31) {
             *gpio_setdataout_addr1 = USR2;
     	} else {
             *gpio_cleardataout_addr1 = USR2;
