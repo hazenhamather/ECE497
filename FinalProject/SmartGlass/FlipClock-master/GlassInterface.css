@@ -1,0 +1,13 @@
+.body {
+    background-color: black;
+    font-family: sans-serif;
+}
+p {
+    color: white;
+}
+.clockDiv {
+    float: right;
+}
+.newsFeed {
+    width: 33%;
+}

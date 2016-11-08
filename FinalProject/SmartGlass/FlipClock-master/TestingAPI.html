@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather API</title>
+    <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.16/jquery.min.js"/>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="GlassInterface.js"></script>
+    <link rel="stylesheet" type="text/css" href="GlassInterface.css" media="screen" />
+    <link rel="stylesheet" href="compiled/flipclock.css">
+    <script src="compiled/flipclock.js"></script>
+
+
+</head>
+<body class = body>
+
+<div class = currentWeatherDiv>
+    <p id = currentWeather>The current temperature is <span class = currentTemp></span> &#8457</p>
+    </div>
+<div class = newsFeed></div>
+<div class = clockDiv>
+    <div class="clock" style="margin:2em;"></div>
+
+		<script type="text/javascript">
+			var clock;
+
+			$(document).ready(function() {
+				clock = $('.clock').FlipClock({
+					clockFace: 'TwelveHourClock',
+					showSeconds: false
+				});
+			});
+		</script>
+</div>
+</body>
+</html>

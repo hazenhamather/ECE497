@@ -1,0 +1,1 @@
+print 'Hello.py has been called by the javascript file'
