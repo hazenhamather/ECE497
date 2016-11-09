@@ -2,12 +2,38 @@
     background-color: black;
     font-family: sans-serif;
 }
-p {
+.leftThird {
+    float:left;
+    width: 25%;
+    padding-top: 3em;
+}
+.middleThird {
+    width: 50%;
+    float:left;
+}
+.rightThird {
+    float:left;
+    width:25%;
+}
+p,h2 {
     color: white;
 }
+#welcomMessage {
+    font-size: 2em;
+    text-align: center;
+}
 .clockDiv {
-    float: right;
+    /*float: right;*/
+    position: relative;
 }
 .newsFeed {
-    width: 33%;
+    /*float:left;*/
+    position: relative;
+}
+#currentWeather {
+    font-size: 0.9em;
+}
+.currentWeatherDiv {
+    float: right;
+    position: relative;
 }
