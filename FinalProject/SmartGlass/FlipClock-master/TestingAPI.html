@@ -13,13 +13,6 @@
 
 </head>
 <body class=body>
-<div class=leftThird>
-    <div class=newsFeed></div>
-</div>
-<div class = middleThird>
-    <p id = welcomMessage>Welcome to Smart Glass</p>
-</div>
-
 <div class = rightThird>
      <div class=clockDiv>
         <div class="clock" style="margin:2em;"></div>
@@ -36,12 +29,24 @@
         </script>
     </div>
     <div class=currentWeatherDiv>
-        <p id=currentWeather>The current temperature is <span class=currentTemp></span> &#8457</p>
+        <span class = city></span>
+        <p><span class=currentTemp></span> &#8457    <span class = currentConditions></span></p>
         <div class=weatherIcon></div>
+        <p>Winds blowing at <span class = windDirection></span>&deg at <span class = windSpeed></span> mph</p>
     </div>
 </div>
+<div class = middleThird>
+    <p id = welcomeMessage>Welcome to Smart Glass</p>
+    <div class="quoteOfTheDayDiv">
+        <!--<span class = "quoteOfTheDay"></span>-->
+    </div>
+</div>
+<div class=leftThird>
+    <div class=newsFeed></div>
+</div>
+
 <div class = bottomDiv>
-    <div class="jokeOfTheDay"></div>
+    <!--<div class="quoteOfTheDay"></div>-->
 </div>
 </body>
 </html>

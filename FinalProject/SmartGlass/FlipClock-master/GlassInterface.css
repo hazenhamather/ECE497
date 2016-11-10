@@ -1,24 +1,30 @@
 .body {
     background-color: black;
     font-family: sans-serif;
-}
-.leftThird {
-    float:left;
-    width: 25%;
-    padding-top: 3em;
-}
-.middleThird {
-    width: 50%;
-    float:left;
+    overflow-x: hidden;
+    /*background-size: contain;*/
 }
 .rightThird {
-    float:left;
-    width:25%;
+    float:right;
+    width:30%;
 }
+.middleThird {
+    width: 35%;
+    float:right;
+    height: 100%;
+}
+.leftThird {
+    float:right;
+    width: 30%;
+    padding-top: 3em;
+    background-size: contain;
+}
+
+
 p,h2 {
     color: white;
 }
-#welcomMessage {
+#welcomeMessage {
     font-size: 2em;
     text-align: center;
 }
@@ -29,11 +35,38 @@ p,h2 {
 .newsFeed {
     /*float:left;*/
     position: relative;
+    /*background-size: contain;*/
 }
 #currentWeather {
     font-size: 0.9em;
 }
 .currentWeatherDiv {
-    float: right;
-    position: relative;
+    /*float: right;*/
+    margin:0 auto;
+    /*position: relative;*/
+    /*border-style: solid;*/
+    /*border-width: 0.1em;*/
+    /*border-color:white;*/
 }
+#icon.resize {
+    width:150px;
+    height: auto;
+}
+.currentTemp {
+    font-weight: bold;
+    /*font-size: 1.5em;*/
+}
+.bottomDiv {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    /*margin: auto;*/
+}
+/*.quoteOfTheDay {*/
+    /*color:white;*/
+    /*text-align: center;*/
+    /*position: fixed;*/
+    /*bottom: 0;*/
+    /*margin: auto;*/
+/*}*/
