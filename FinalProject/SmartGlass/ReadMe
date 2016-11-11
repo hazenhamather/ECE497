@@ -1,0 +1,5 @@
+This sub-directory contains the final project for ECE497 title Smart Glass. My partner for this project was Luke Kuza.
+
+In order to successfully get all of our code, you will want to clone the entire master branch of the SmartGlass folder. Once cloned, cd to FlipClock-master. To run the mirror interface, simply open the TestingAPI.html in Google Chrome (other browsers would most likely work but all of our code was testing on Chromium). Unfortunately, with the way in which the Kinect has been locked down by Microsoft. We have been exploring options and have found a promising possible solution but it will not implemented in time for the expo on 11/11/16.
+
+The only problem we have discovered with the interface is that upon running for the first time, sometimes data from the GET requests is lost. This is easily fixed by refreshing the page.
